@@ -1,0 +1,55 @@
+:host {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 300px auto auto;
+  grid-template-rows: min-content repeat(2, 1fr);
+  grid-template-areas:
+    "header header header"
+    "menu main main"
+    "menu main main";
+
+  background-color: var(--bg-grey-light);
+}
+
+
+
+.system-header {
+  grid-area: header;
+
+  // grid-column: ;
+}
+
+.menu {
+  grid-area: menu;
+  display: flex;
+  flex-direction: column;
+  color: var(--color-brand);
+
+
+}
+
+::ng-deep .system-menu {
+  .text-icons {
+    gap: .6rem;
+    padding: .6rem .8rem;
+  }
+
+  .icon {
+    height: 1rem;
+  }
+}
+
+
+main.container {
+  grid-area: main;
+  height: max-content;
+  padding: 1.6rem 2.4rem;
+}
+
+
+
+
+
+// * {
+//   border: var(--service-border)
+// }

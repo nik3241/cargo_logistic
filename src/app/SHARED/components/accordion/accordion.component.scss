@@ -1,0 +1,31 @@
+details {
+
+
+  &:not([open]) {
+    article {
+      height: 0;
+      transition: all 500ms;
+    }
+  }
+
+  summary {
+    display: flex;
+  }
+
+  article {
+    max-height: 100%;
+    padding: 0.2rem;
+    transition: all 500ms;
+  }
+}
+
+::ng-deep details {
+  &[open] .icon.chevron {
+    transform: rotate(270deg);
+    transition: all 500ms;
+  }
+
+  &:not([open]) .icon.chevron {
+    transition: all 500ms;
+  }
+}

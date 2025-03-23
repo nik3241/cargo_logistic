@@ -1,0 +1,19 @@
+<nav>
+  <ul [ngClass]="">
+    <ng-container>
+      <li *ngFor="let item of items">
+        <a [routerLink]="item.link">
+          <span [ngClass]="'icon ' +  (item.leftIcon ? item.leftIcon: 'none' )"></span>
+          <div class="menu-body">
+            <span class="text">{{ item.label }}</span>
+            <span *ngIf="item.children && item.children.length > 0"
+              [ngClass]="'icon ' +  (item.rightIcon ? item.rightIcon:  'none') + 'mirror-rtl'"></span>
+          </div>
+        </a>
+        <!-- Рекурсивное отображение дочерних элементов -->
+        <exsc-menu-header *ngIf="item.children && item.children.length > 0" [items]="item.children">
+        </exsc-menu-header>
+      </li>
+    </ng-container>
+  </ul>
+</nav>

@@ -1,0 +1,43 @@
+<a class="logo-link" routerLink="/">
+  <img  src="logo-color-transparent.svg" alt="Логотип" height="48">
+</a>
+
+<div class="content">
+  <exsc-menu-header [items]="menuItems"></exsc-menu-header>
+  <div class="title"></div>
+</div>
+
+
+
+<div class="container-right">
+  <div class="btn-group" *ngIf="isPublic; else privateTemplate">
+    <span class="btn btn-primary">
+      <a href="/login/signin">Вход</a>
+    </span>
+    <span class="btn btn-subtle">
+      <a href="/login/signup">Регистрация</a>
+    </span>
+  </div>
+
+
+
+
+  <ng-template #privateTemplate>
+    <div class="notifications">
+      <span class="icon bell-32"></span>
+      <span class="icon badges-16">3</span>
+    </div>
+    <div class="account" routerLink="/system/profile">
+      <div class="profile">
+
+        <img *ngIf="userImageSrc; else imgPlaceholder" [src]="userImageSrc" alt="">
+        <ng-template #imgPlaceholder>
+
+          <span class="icon user-48"></span>
+
+        </ng-template>
+      </div>
+      <span class="name">{{userName}}</span>
+    </div>
+  </ng-template>
+</div>

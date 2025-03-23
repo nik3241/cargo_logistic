@@ -1,0 +1,18 @@
+<div class="header-container">
+  <div class="header-body {{headerClass}}"><ng-content select="[headerContent]"></ng-content></div>
+  <mat-divider></mat-divider>
+</div>
+
+
+
+<div class="content-container">
+  <div class="content-body {{contentClass}}"><ng-content></ng-content></div>
+</div>
+
+
+
+
+<div class="footer-container">
+  <div class="footer-body {{footerClass}}"><ng-content select="[footerContent]"></ng-content></div>
+  <mat-divider></mat-divider>
+</div>

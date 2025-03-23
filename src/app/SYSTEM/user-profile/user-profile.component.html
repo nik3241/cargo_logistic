@@ -1,0 +1,91 @@
+<div class="left-container">
+  <exsc-card class="card-profile padding-large" headerClass="row align-center">
+
+    <div headerContent class="avatar"> </div>
+    <div headerContent class="user-heading">
+      <div class="heading">Агафнов Никита</div>
+      <div class="subheading">Спортсмен, Тренер</div>
+    </div>
+
+
+    <ng-container mainContent>
+      <exsc-text-icons class="user-info" leftIcon="user">{{userInfo['userId']}}</exsc-text-icons>
+      <exsc-text-icons class="user-info" leftIcon="email">{{userInfo['email']}}</exsc-text-icons>
+      <exsc-text-icons class="user-info" leftIcon="star">{{userInfo['SNILS']}}</exsc-text-icons>
+      <exsc-text-icons class="user-info" leftIcon="telephone">{{userInfo['tel']}}</exsc-text-icons>
+      <exsc-text-icons class="user-info" leftIcon="star">{{userInfo['datebirth']}}</exsc-text-icons>
+      <exsc-text-icons class="user-info" leftIcon="star">{{userInfo['adress']}}</exsc-text-icons>
+      <exsc-text-icons class="user-info" leftIcon="star">{{userInfo['timeoffset']}}</exsc-text-icons>
+      <exsc-text-icons class="user-info" leftIcon="star">{{userInfo['gender']}}</exsc-text-icons>
+      <exsc-text-icons class="user-info" leftIcon="star">{{userInfo['bodysize']}}</exsc-text-icons>
+    </ng-container>
+
+    <div footerContent class="btn-group column">
+      <button id="edit" class="btn  btn-inline">
+        <span class="text">Редактировать</span>
+        <span class="icon edit"></span>
+      </button>
+      <button id="openTG" class="btn btn-primary">Открыть телеграмм</button>
+    </div>
+  </exsc-card>
+</div>
+
+
+
+<div class="right-container">
+  <exsc-card class="organization-card">
+    <exsc-text-icons headerContent>Мои оранизации</exsc-text-icons>
+    <table>
+      <thead>
+        <tr>
+          <td>ORG</td>
+          <td>Название</td>
+          <td>Действия</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>722</td>
+          <td>Дворец детского творчества им. В.П. Чкалова</td>
+          <td>
+            <div class="action-group">
+
+              <exsc-text-icons leftIcon="trash danger"></exsc-text-icons>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div footerContent class="btn-group">
+      <input placeholder="Организации" type="search" name="organization" id="organization">
+      <button class="btn btn-primary"><exsc-text-icons>Добавить</exsc-text-icons></button>
+    </div>
+  </exsc-card>
+
+  <exsc-accordion>
+    <exsc-text-icons accordionLabel rightIcon="chevron rot-180">Изменить электронную почту</exsc-text-icons>
+    <form action="changeEmail()" name="changeEmail" method="post">
+      <label for="email">
+        <span>Новая электронная почта</span>
+        <input type="email" placeholder="Новая электронная почта">
+      </label>
+      <button type="submit" disabled="disabled" class="btn btn-primary">Сохранить</button>
+    </form>
+  </exsc-accordion>
+
+  <exsc-accordion>
+    <exsc-text-icons accordionLabel rightIcon="chevron rot-180">Изменить пароль</exsc-text-icons>
+    <form action="changePassword()" name="changePassword" method="post">
+      <label for="password">
+        <span>Введите текущий пароль</span>
+        <input type="password" placeholder="Текущий пароль">
+      </label>
+      <label for="password">
+        <span>Новый пароль</span>
+        <input type="password" placeholder="Новый пароль">
+      </label>
+      <button type="submit" disabled="disabled" class="btn btn-primary">Сохранить</button>
+    </form>
+  </exsc-accordion>
+
+</div>

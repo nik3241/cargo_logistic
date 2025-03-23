@@ -1,0 +1,57 @@
+:host {
+  box-shadow: var(--shadow-200);
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+
+  &>ul {
+    margin-top: .8rem;
+  }
+
+  span.icon {
+    height: 1rem;
+    width: auto;
+  }
+
+  li {
+
+    ul {
+      color: var(--color-text-brand-secondary);
+
+      li a {
+        padding-left: 1.4rem;
+      }
+    }
+  }
+
+  a {
+    display: flex;
+    word-wrap: break-word;
+  }
+}
+
+
+
+.mat-divider {
+  padding: 0.4rem 0.8rem;
+  border-top: var(--border-default);
+  border-color: var(--color-grey);
+}
+
+.menu-header {
+  padding: 0.4rem 0.8rem;
+  margin-top: 0.8rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  .menu-heading {
+    font: var(--text-body-strong);
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+  }
+}

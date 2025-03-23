@@ -1,0 +1,159 @@
+/* You can add global styles to this file, and also import other style files */
+//
+input {
+  width: auto;
+  border: var(--border-default);
+  padding: 0.6rem 0.8rem;
+  font: var(--text-body-base-single-line);
+  color: var(--color-text)
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
+  input[type="email"],
+  input[type="password"],
+  input[type="text"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="time"],
+  input[type="date"] {
+    border-radius: 0.4rem;
+    width: 100%;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    font: var(--text-body-base);
+
+    span {
+      margin-bottom: 0.4rem;
+    }
+  }
+}
+
+button {
+  border: none;
+  width: fit-content;
+  cursor: pointer;
+}
+
+input[type='search'] {
+  border-radius: var(--border-radius-full);
+}
+
+
+
+.btn-group {
+  display: flex;
+  gap: 0.6rem;
+  height: fit-content;
+  width: fit-content;
+
+  &.column {
+    flex-direction: column;
+  }
+
+  &.btn-stretch {
+    width: 100%;
+
+    justify-content: stretch;
+
+    &>.btn {
+      width: inherit;
+      min-width: none;
+    }
+  }
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.6rem;
+  min-width: 7rem;
+
+  border-radius: 0.4rem;
+  background: none;
+  border: none;
+
+  color: var(--color-text);
+  font: var(--text-body-base-single-line);
+
+  cursor: pointer;
+
+
+
+  &-small {
+    padding: 0.4rem;
+    border-radius: 0.4rem;
+  }
+
+  a,
+  a:hover {
+    text-decoration: none;
+  }
+
+
+  &.btn-primary {
+
+    background-color: var(--bg-brand);
+    border: 1px solid var(--bg-brand);
+    color: var(--color-text-light);
+
+
+    &:hover {
+
+      background-color: var(--bg-brand-dark);
+      border: 1px solid var(--bg-brand-dark);
+    }
+  }
+
+  &.btn-accent {
+
+
+    background: var(--gradient-accent);
+    border: 1px solid var(--gradient-accent);
+    color: var(--color-text-light);
+
+    transition: 0.3 ease-out;
+
+    &:hover>* {
+      transform: translateY(-0.2rem);
+      transition: all 0.3s ease-in;
+      // background-color: var(--bg-brand-dark);
+      // border: 1px solid var(--bg-brand-dark);
+    }
+  }
+
+  &.btn-subtle {
+    border: 1px solid var(--bg-brand);
+    color: var(--bg-brand);
+
+    &:hover {
+      border: 1px solid var(--bg-brand-dark);
+
+      background-color: var(--bg-brand-light);
+    }
+  }
+
+  &.btn-inline {
+    gap: 0.2rem;
+    padding: 0.1rem 0.2rem;
+
+    &:hover {
+      color: var(--bg-brand);
+
+
+      .text,
+      .icon {
+        transform: translateY(-4px);
+        transition: transform 200ms,
+          color 200ms;
+      }
+    }
+  }
+}

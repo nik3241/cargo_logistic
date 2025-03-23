@@ -1,1 +1,188 @@
 /* You can add global styles to this file, and also import other style files */
+//
+// @import './icons-set.scss';
+// @import './fonts.scss';
+// @import './forms.scss';
+
+:root {
+  // font-family
+  --heading-font: "Bebas-Neue-Cyrillic", sans-serif;
+  --body-font: 'Montserrat', sans-serif;
+  --font-code: 'Roboto Mono', monospace;
+
+  // font-size
+  --fsz-body-base: 1rem;
+  --fsz-body-small: 0.8rem;
+  --fsz-body-code: 0.7rem;
+
+  --fsz-title-hero: 3.5rem;
+  --fsz-title: 3rem;
+  --fsz-subtitle: 2rem;
+  --fsz-heading: 1.2rem;
+  --fsz-subheading: 1rem;
+
+  // text style
+  --text-title-hero: var(--fsz-title-hero)/1.2 var(--heading-font);
+  --text-title: var(--fsz-title)/1.2 var(--heading-font);
+  --text-subtitle: var(--fsz-subtitle)/1.2 var(--heading-font);
+  --text-heading: var(--fsz-heading)/1.2 var(--heading-font);
+  --text-subheading: var(--fsz-subheading)/1.2 var(--body-font);
+
+  --text-body-base: var(--fsz-body-base)/1.4 var(--body-font);
+  --text-body-strong: bold var(--fsz-body-base)/1.4 var(--body-font);
+  --text-body-link: italic var(--fsz-body-base)/1.4 var(--body-font);
+
+
+  --text-body-base-small: var(--fsz-body-small)/1.4 var(--body-font);
+  --text-body-strong-small: bold var(--fsz-body-small)/1.4 var(--body-font);
+  --text-body-link-small: italic var(--fsz-body-small)/1.4 var(--body-font);
+
+  --text-body-base-single-line: var(--fsz-body-small)/1 var(--body-font);
+  --text-body-strong-single-line: bold var(--fsz-body-small)/1 var(--body-font);
+  --text-body-link-single-line: italic var(--fsz-body-small)/1 var(--body-font);
+
+  --text-body-code: var(--fsz-body-code)/1 var(--font-code);
+
+  // COLOR
+  --color-brand: #2C398B;
+  --color-accent: #DE7158;
+  --color-accent2: #F3B13F;
+  --color-positive: #14AE5C;
+  --color-warning: #E8B931;
+  --color-danger: #B3261E;
+
+  --color-grey: #d9d9d9;
+  --color-grey-dark: #757575;
+
+  --color-text: #1E1E1E;
+  --color-text-secondary: #757575;
+  --color-text-light: #ffffff;
+
+  --color-text-brand: var(--color-brand);
+  --color-text-brand-secondary: #6B9CC2;
+
+  --gradient-brand:linear-gradient(45deg, var(--bg-brand-dark),var(--bg-brand-light));
+  --gradient-accent: linear-gradient(90deg, var(--color-accent2) 0%, var(--color-accent) 73.5%);
+  --gradient-color-3x-circel: radial-gradient(circle, #4a72a2, #7070aa, #986ba7, #bb6598, #d36480, #df6a72, #e67362, #e87f52, #ed8b4d, #f19748, #f3a443, #f3b13f);
+  --gradient-color-3x-tt: linear-gradient(to top, #4a72a2, #7070aa, #986ba7, #bb6598, #d36480, #df6a72, #e67362, #e87f52, #ed8b4d, #f19748, #f3a443, #f3b13f);
+
+  --bg-brand: var(--color-brand);
+  --bg-brand-dark: #062e5f;
+  --bg-brand-light: #00ADEE;
+  --bg-accent: var(--color-accent);
+  --bg-accent-light: #F6DAD3;
+  --bg-accent-dark: #D64D2E;
+  --bg-grey-light: #F7F7F7;
+  --bg-white: #fff;
+
+  --border-default: 1px solid var(--color-grey);
+  --boreder-radius-default: 0.4rem;
+  --border-radius-full: 9999px;
+
+  --shadow-200: 0 4px 4px 2px rgba(0, 0, 0, 0.2);
+  --shadow-300: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+
+
+
+  --service-border: 1px solid #cc00df;
+}
+
+// .links a {
+//   font: bold var(--fsz-body-code)/1.4 var(--font-code);
+// }
+
+html {
+  font: normal 20px/1.4 var(--body-font);
+  color: var(--color-text);
+}
+
+html,
+body {
+
+  min-height: 100vh;
+}
+
+body {
+  display: grid;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+span {
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  line-height: inherit;
+  font: inherit;
+  text-decoration: none;
+
+  &:hover {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: inherit;
+  }
+}
+
+
+
+
+
+
+h1,
+.title-hero {
+  font: var(--text-title-hero);
+  color: currentColor;
+}
+
+h2,
+.title-page,
+.title {
+  font: var(--text-title);
+  color: currentColor;
+}
+
+h3,
+.subtitle {
+  font: var(--text-subtitle);
+  color: currentColor;
+}
+
+h4,
+.heading {
+  font: var(--text-heading);
+  color: currentColor;
+}
+
+h5,
+.subheading {
+  font: var(--text-subheading);
+  color: currentColor;
+}
+
+.animation,
+.hover-animation {
+  transition: all 200ms ease-in;
+
+  &.hover-default:hover {
+    transform: translate(0, -0.4em);
+    transition: all 500ms ease-in-out;
+  }
+}
+
+
+
+.img_placeholder {
+  background-image: url('/img_placeholder.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

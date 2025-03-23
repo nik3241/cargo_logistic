@@ -1,0 +1,47 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+h3 {
+  font: var(--text-title-hero);
+  color: var(--color-brand);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+
+button {
+  min-width: auto;
+  margin-top: .6rem;
+
+  align-self: self-end;
+  border-radius: 9999px;
+
+  &:hover .icon {
+
+    transform: translate(.2rem, 0);
+    // background-color: currentColor;
+  }
+}
+
+.links {
+  margin-top: 1.6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  a {
+    font: var(--text-body-link);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}

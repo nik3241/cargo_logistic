@@ -1,0 +1,210 @@
+/* You can add global styles to this file, and also import other style files */
+//
+// сет иконок
+//
+/* Определение миксина */
+@mixin icon-style($rem, $folder, $name) {
+  &.#{$name}-#{$rem*20} {
+    -webkit-mask-image: url('/icons/#{$folder}/Size=#{$rem*20}.svg');
+    mask-image: url('/icons/#{$folder}/Size=#{$rem*20}.svg');
+
+    height: #{$rem}rem;
+
+  }
+}
+
+/* Использование миксина */
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 0.8rem;
+  max-width: 2.4rem;
+  min-height: 0.8rem;
+  max-height: 2.4rem;
+  width: auto;
+
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  aspect-ratio: 1;
+
+  background-color: currentColor;
+
+  &.user {
+    -webkit-mask-image: url('/icons/user/Size=48.svg');
+    mask-image: url('/icons/user/Size=48.svg');
+  }
+  &.users {
+    -webkit-mask-image: url('/icons/users/Size=48.svg');
+    mask-image: url('/icons/users/Size=48.svg');
+  }
+
+  &.home {
+    -webkit-mask-image: url('/icons/home/Size=48.svg');
+    mask-image: url('/icons/home/Size=48.svg');
+  }
+
+  &.chevron {
+    -webkit-mask-image: url('/icons/chevron-left/Size=48.svg');
+    mask-image: url('/icons/chevron-left/Size=48.svg');
+  }
+
+  &.arrow {
+    -webkit-mask-image: url('/icons/arrow-right/Size=48.svg');
+    mask-image: url('/icons/arrow-right/Size=48.svg');
+  }
+
+  &.bell {
+    -webkit-mask-image: url('/icons/bell/Size=48.svg');
+    mask-image: url('/icons/bell/Size=48.svg');
+  }
+
+
+  &.settings {
+    -webkit-mask-image: url('/icons/settings/Size=48.svg');
+    mask-image: url('/icons/settings/Size=48.svg');
+  }
+  &.edit {
+    -webkit-mask-image: url('/icons/edit/Size=48.svg');
+    mask-image: url('/icons/edit/Size=48.svg');
+  }
+
+  &.cup {
+    -webkit-mask-image: url('/icons/cup/cup.svg');
+    mask-image: url('/icons/cup/cup.svg');
+  }
+
+  &.calendar {
+    -webkit-mask-image: url('/icons/calendar/Size=48.svg');
+    mask-image: url('/icons/calendar/Size=48.svg');
+  }
+
+  &.file-text {
+    -webkit-mask-image: url('/icons/file-text/Size=48.svg');
+    mask-image: url('/icons/file-text/Size=48.svg');
+  }
+
+  @include icon-style(0.8, 'chevron-left', 'chevron-left');
+  @include icon-style(1, 'chevron-left', 'chevron-left');
+  @include icon-style(1.2, 'chevron-left', 'chevron-left');
+  @include icon-style(1.6, 'chevron-left', 'chevron-left');
+  @include icon-style(2, 'chevron-left', 'chevron-left');
+  @include icon-style(2.4, 'chevron-left', 'chevron-left');
+
+  @include icon-style(0.8, 'arrow-right', 'arrow-right');
+  @include icon-style(1, 'arrow-right', 'arrow-right');
+  @include icon-style(1.2, 'arrow-right', 'arrow-right');
+  @include icon-style(1.6, 'arrow-right', 'arrow-right');
+  @include icon-style(2, 'arrow-right', 'arrow-right');
+  @include icon-style(2.4, 'arrow-right', 'arrow-right');
+
+  @include icon-style(0.8, 'bell', 'bell');
+  @include icon-style(1, 'bell', 'bell');
+  @include icon-style(1.2, 'bell', 'bell');
+  @include icon-style(1.6, 'bell', 'bell');
+  @include icon-style(2, 'bell', 'bell');
+  @include icon-style(2.4, 'bell', 'bell');
+
+  @include icon-style(0.8, 'user', 'user');
+  @include icon-style(1, 'user', 'user');
+  @include icon-style(1.2, 'user', 'user');
+  @include icon-style(1.6, 'user', 'user');
+  @include icon-style(2, 'user', 'user');
+  @include icon-style(2.4, 'user', 'user');
+
+  @include icon-style(0.8, 'users', 'users');
+  @include icon-style(1, 'users', 'users');
+  @include icon-style(1.2, 'users', 'users');
+  @include icon-style(1.6, 'users', 'users');
+  @include icon-style(2, 'users', 'users');
+  @include icon-style(2.4, 'users', 'users');
+
+  @include icon-style(0.8, 'settings', 'settings');
+  @include icon-style(1, 'settings', 'settings');
+  @include icon-style(1.2, 'settings', 'settings');
+  @include icon-style(1.6, 'settings', 'settings');
+  @include icon-style(2, 'settings', 'settings');
+  @include icon-style(2.4, 'settings', 'settings');
+
+  @include icon-style(0.8, 'cup', 'cup');
+  @include icon-style(1, 'cup', 'cup');
+  @include icon-style(1.2, 'cup', 'cup');
+  @include icon-style(1.6, 'cup', 'cup');
+  @include icon-style(2, 'cup', 'cup');
+  @include icon-style(2.4, 'cup', 'cup');
+
+  @include icon-style(0.8, 'calendar', 'calendar');
+  @include icon-style(1, 'calendar', 'calendar');
+  @include icon-style(1.2, 'calendar', 'calendar');
+  @include icon-style(1.6, 'calendar', 'calendar');
+  @include icon-style(2, 'calendar', 'calendar');
+  @include icon-style(2.4, 'calendar', 'calendar');
+
+  @include icon-style(0.8, 'file-text', 'file-text');
+  @include icon-style(1, 'file-text', 'file-text');
+  @include icon-style(1.2, 'file-text', 'file-text');
+  @include icon-style(1.6, 'file-text', 'file-text');
+  @include icon-style(2, 'file-text', 'file-text');
+  @include icon-style(2.4, 'file-text', 'file-text');
+
+  &.badges-16 {
+    width: 0.8rem;
+    height: 0.8rem;
+    overflow: hidden;
+    border-radius: var(--border-radius-full);
+  }
+
+  &.badges-8 {
+    width: 0.4rem;
+    height: 0.4rem;
+    overflow: hidden;
+    border-radius: var(--border-radius-full);
+
+    * {
+      display: none;
+    }
+  }
+
+
+
+  &.icon-none,
+  &.none {
+    display: none;
+  }
+
+  &.icon-empty,
+  &.empty {
+    background-color: transparent;
+  }
+
+  &.rot-0{
+    transform: rotate(0deg);
+  }
+  &.rot-900{
+    transform: rotate(90deg);
+  }
+  &.rot-180{
+    transform: rotate(180deg);
+  }
+  &.rot-270{
+    transform: rotate(270deg);
+  }
+  &.rot-360{
+    transform: rotate(360deg);
+  }
+
+
+
+
+  &.positive{
+    background: var(--color-positive);
+  }
+  &.warning{
+    background: var(--color-warning);
+  }
+  &.danger{
+    background: var(--color-danger);
+  }
+}

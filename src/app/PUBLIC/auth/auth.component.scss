@@ -1,0 +1,45 @@
+:host {
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: var(--gradient-brand);
+}
+
+.auth-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 3.2rem;
+  // padding-top: 300px;
+  width: 528px;
+  min-height: 780px;
+  border: var(--border-default);
+  background: var(--bg-white);
+  border-radius: 4rem;
+  overflow: hidden;
+
+  .close {
+    position: absolute;
+    z-index: 1;
+    left: 4rem;
+    top: 4rem;
+    color: #fff;
+
+    .icon {
+      background-color: var(--color-text);
+    }
+  }
+
+  .blob {
+    position: absolute;
+    z-index: -9999;
+    top: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+
+    height: 100%;
+  }
+}

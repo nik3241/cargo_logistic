@@ -1,0 +1,32 @@
+<h3>Регистрация</h3>
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+  <label for="email">
+    <span>Электронная почта</span>
+    <input formControlName="email" id="email" name='email' type="email" placeholder="Электронная почта">
+  </label>
+
+  <label for="password">
+    <span>Пароль</span>
+    <input formControlName="password" id="password" name="password" type="password" placeholder="Пароль">
+  </label>
+
+  <label for="repeat-password">
+    <span>Повторите пароль</span>
+    <input formControlName="repeat-password" id="repeat-password" name="repeat-password" type="password"
+      placeholder="Повторите пароль">
+  </label>
+
+  <label for="checkbox">
+    <span>Соглашаюсь с<a routerLink="/">правилами пользования площадкой</a></span>
+    <input formControlName="agree" id="checkbox" name="checkbox" type="checkbox" >
+  </label>
+
+  <div class="links">
+    <span>Есть аккаунт? <a routerLink="/login/signin">Войти</a></span>
+    <button type="submit" [disabled]="!signupForm.valid">
+      <span class="icon arrow-right-32"></span>
+    </button>
+  </div>
+
+</form>

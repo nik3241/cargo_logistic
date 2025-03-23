@@ -1,0 +1,40 @@
+:host {
+  display: inline-block;
+  // min-width: 20%;
+  // max-width: 50%;
+  // width: 30%;
+}
+
+.competition-card {
+  box-shadow: var(--shadow-200);
+  /* Фиксированная ширина для карточек */
+  flex: none;
+  /* Запрещает растягивание карточек */
+  overflow: hidden;
+
+  .card-image {
+    min-height: 150px;
+    aspect-ratio: 4 / 3;
+    width: 100%;
+  }
+}
+
+.card-content {
+  .header {}
+
+  .description {
+    margin-top: 1rem;
+
+    // обрезка текста по количеству строк и ...
+    display: -webkit-box;
+    max-width: 300px;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .subheading {
+    font: var(--text-body-code);
+    color: var(--color-text-);
+  }
+}

@@ -32,6 +32,10 @@
               }
             ],
             "styles": [
+              "node_modules/normalize.css/normalize.css",
+              "src/icons-set.scss",
+              "src/fonts.scss",
+              "src/forms.scss",
               "src/styles.scss"
             ],
             "scripts": []

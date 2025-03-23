@@ -1,0 +1,44 @@
+<nav>
+  <ng-container [ngTemplateOutlet]="menu" [ngTemplateOutletContext]="{ $implicit: userMenu}">
+  </ng-container>
+
+  <mat-divider></mat-divider>
+  <div class="menu-header">
+    <div class="menu-heading">Мероприятие</div>
+    <input id="searchEvents" type="search" value="Все">
+  </div>
+
+  <ng-container [ngTemplateOutlet]="menu" [ngTemplateOutletContext]="{ $implicit: eventsSystemMenu}">
+  </ng-container>
+
+</nav>
+
+
+<!-- шаблон для отображения одно пункта меню -->
+<ng-template #listItemBody let-itemMenu>
+  <!-- сама ссылка пункта меню с двумя иконками -->
+  <a [routerLink]="itemMenu.link">
+    <exsc-text-icons [leftIcon]="itemMenu.leftIcon ?? 'none'"
+      [rightIcon]="itemMenu.children?.length ?'chevron rot-180': itemMenu.rightIcon">
+      {{ itemMenu.label }}
+    </exsc-text-icons>
+  </a>
+  <!-- проверка есть ли дочерние элементы -->
+  <ng-container *ngIf="itemMenu.children?.length">
+    <!-- отображение вложенного меню. передается: список элементов и класс подменю -->
+    <ng-container *ngTemplateOutlet="menu;  context: { $implicit: itemMenu.children}">
+    </ng-container>
+  </ng-container>
+</ng-template>
+
+<!-- шаблон подменю получающий две переменные -->
+<ng-template #menu let-menuItems let-name>
+  <!-- {{ menuItems[0].label}} {{menuItems.length}} -->
+  <ul>
+    <li *ngFor="let item of menuItems">
+      <ng-container *ngTemplateOutlet="listItemBody;  context: { $implicit: item }"> </ng-container>
+
+    </li>
+  </ul>
+
+</ng-template>

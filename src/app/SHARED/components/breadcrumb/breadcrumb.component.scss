@@ -1,0 +1,60 @@
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  // gap: 0.6rem;
+  background: none;
+  font-size: 0.8em;
+  margin-bottom: .6rem;
+
+  font: var(--text-body-base);
+
+  a,
+  span {
+    color: var(--color-text);
+  }
+
+  a:hover,
+  span:hover {
+    color: var(--color-grey-dark);
+    text-decoration: none;
+  }
+
+  li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    cursor: pointer;
+  }
+
+  li:first-child {
+    span {
+      display: flex;
+
+    }
+  }
+
+  li:last-child {
+    margin-right: 1rem;
+
+    .router-link-active {
+      color: var(--color-brand);
+    }
+  }
+
+  li::after {
+    display: block;
+    padding-left: 0.4rem;
+    content: "\5C ";
+    color: darkgrey;
+  }
+
+  li:last-child::after {
+    content: "";
+  }
+
+  .icon {
+    height: 1.4rem;
+    margin-right: 0.6rem;
+  }
+}

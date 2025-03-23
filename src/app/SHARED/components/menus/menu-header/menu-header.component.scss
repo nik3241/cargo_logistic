@@ -1,0 +1,41 @@
+nav {
+  color: inherit;
+
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+
+    &.column {
+      flex-direction: column;
+      align-items: start;
+    }
+
+    li {
+      list-style: none;
+      width: 100%;
+      a {
+        display: flex;
+        padding: 0.6rem 0.8rem;
+        align-items: center;
+        gap: 0.6rem;
+        align-self: stretch;
+
+        display: flex;
+        position: relative;
+
+        .text {
+          position: relative;
+          // top: -0.15rem;
+          // width: 100%;
+        }
+      }
+
+      .menu-body {
+        padding: 0.2rem   0;
+      }
+    }
+  }
+
+}

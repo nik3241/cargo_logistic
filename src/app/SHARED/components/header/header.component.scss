@@ -1,0 +1,97 @@
+:host {
+  // border: 1px solid rgb(12, 29, 102);
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3.5rem;
+  padding: 0.8rem 2.4rem;
+  box-shadow: var(--shadow-300);
+
+  background-color: var(--gradient-brand);
+
+  z-index: 2;
+
+  .logo-link {
+    line-height: 1;
+  }
+
+  &.accent-gradient {
+    background: var(--gradient-accent);
+
+    .content,
+    .notifications,
+    .account {
+      color: #fff;
+    }
+  }
+}
+
+.content {
+  width: 100%;
+}
+
+
+
+.container-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+  gap: 1rem;
+  width: fit-content;
+}
+
+.notifications {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  .icon {
+    // background-color: var(--color-accent);
+  }
+
+  .badges-16 {
+    position: absolute;
+    top: -3px;
+    right: -2px;
+    color: var(--color-text-light);
+    font-size: small;
+    text-align: center;
+    vertical-align: middle;
+    background: var(--color-danger);
+    // background: none;
+    // border: var(--border-default);
+    // border-color: currentColor;
+  }
+}
+
+.account {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+  gap: 0.4rem;
+  cursor: pointer;
+
+  .profile {
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: var(--border-radius-full);
+    background-color: var(--bg-accent-light);
+    overflow: hidden;
+
+    .icon {
+      background-color: var(--color-accent);
+    }
+  }
+
+  .name {
+    min-width: 10rem;
+    max-width: 13rem;
+    white-space: nowrap
+  }
+}

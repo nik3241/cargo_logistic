@@ -1,0 +1,70 @@
+:host {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+
+  .left-container,
+  .right-container {
+    display: flex;
+    flex-direction: column;
+    gap: inherit;
+  }
+}
+
+.avatar {
+  aspect-ratio: 1;
+  height: 3rem;
+  background: var(--color-brand);
+  border-radius: var(--boreder-radius-default);
+}
+
+.user-heading {
+  width: 100%;
+
+  .subheading {
+    font: var(--text-body-base-single-line);
+    color: var(--color-text-secondary);
+  }
+}
+
+
+::ng-deep .user-info {
+
+  font: var(--text-body-small);
+
+  .icon {
+    height: 1em;
+  }
+
+}
+
+.btn-group {
+  gap: 0.8rem;
+}
+
+.organization-card {
+
+  width: 100%;
+
+  .btn-group {
+    width: inherit;
+
+    #organization {
+      width: inherit;
+    }
+  }
+
+}
+
+.action-group {
+  display: flex;
+  padding: .2rem .4rem;
+  justify-content: flex-end;
+  align-items: center;
+  gap: .4rem;
+  align-self: stretch;
+
+  .text-icons {
+    width: fit-content;
+  }
+}
