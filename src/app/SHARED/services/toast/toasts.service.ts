@@ -18,11 +18,12 @@ export interface ToastData {
   providedIn: 'root',
 })
 export class ToastService {
-  data: ToastData;
+  data!: ToastData;
   public open = new Subject<ToastData>();
 
   initiate(data: ToastData) {
-    if (data.type) {
+    console.log("ToastService initiate data", data)
+    if (!data.type) {
       this.data.type = toastTypes.error;
     }
     this.data = { ...data, show: true, progressWidth: '100%' };
@@ -30,7 +31,9 @@ export class ToastService {
   }
 
   hide() {
+
     this.data = { ...this.data, show: false };
+    console.log('hide', this.data)
     this.open.next(this.data);
   }
 }

@@ -54,6 +54,7 @@ export class GrabbingScrollDirective implements OnInit {
     const styleElement = this.renderer.createElement('style');
     this.renderer.appendChild(styleElement, this.renderer.createText(styles));
     this.renderer.appendChild(this.elem.nativeElement, styleElement);
+
   }
 
 

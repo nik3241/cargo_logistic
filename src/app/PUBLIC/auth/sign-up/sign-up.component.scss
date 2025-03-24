@@ -30,12 +30,20 @@ label[for="chekbox"] {
     font: var(--text-body-link-small);
   }
 
-&>input{
-  position: relative;
-  top: -0.1rem;
-  height: 1rem;
-  width: 1rem;
-}
+  &>input {
+    position: relative;
+    top: -0.1rem;
+    height: 1rem;
+    width: 1rem;
+
+    &.ng-touched.ng-valid {
+      border-color: var(--color-positive);
+    }
+
+    &.ng-touched.ng-invalid {
+      border-color: var(--color-danger);
+    }
+  }
 }
 
 button {

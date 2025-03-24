@@ -16,14 +16,19 @@ import { AuthService } from '../../services/auth/auth.service';
   providers: [AuthService],
 })
 export class HeaderComponent {
-  @Input() isPublic = true
+  // @Input() isPublic = true
+  isAuthenticated = false
 
   protected userImageSrc = ""
   protected userName = "Jon Doe"
   menuName: string = 'headerMenu'
   menuItems
 
-  constructor(private menuService: MenuService) {
+  constructor(
+    private menuService: MenuService,
+    private authService: AuthService,
+  ) {
     this.menuItems = this.menuService.getMenuByName(this.menuName);
+    this.isAuthenticated = this.authService.isLoggedIn()
   }
 }

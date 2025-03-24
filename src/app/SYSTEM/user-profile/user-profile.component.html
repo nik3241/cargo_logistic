@@ -1,31 +1,23 @@
 <div class="left-container">
-  <exsc-card class="card-profile padding-large" headerClass="row align-center">
+  <exsc-card *ngIf="profileInfo" class="card-profile padding-large" headerClass="row align-center">
 
-    <div headerContent class="avatar"> </div>
+    <div headerContent class="avatar">{{ profileInfo.email}}</div>
     <div headerContent class="user-heading">
-      <div class="heading">Агафнов Никита</div>
-      <div class="subheading">Спортсмен, Тренер</div>
+      <div class="heading">{{profileInfo.name||profileInfo.email}}</div>
     </div>
 
-
     <ng-container mainContent>
-      <exsc-text-icons class="user-info" leftIcon="user">{{userInfo['userId']}}</exsc-text-icons>
-      <exsc-text-icons class="user-info" leftIcon="email">{{userInfo['email']}}</exsc-text-icons>
-      <exsc-text-icons class="user-info" leftIcon="star">{{userInfo['SNILS']}}</exsc-text-icons>
-      <exsc-text-icons class="user-info" leftIcon="telephone">{{userInfo['tel']}}</exsc-text-icons>
-      <exsc-text-icons class="user-info" leftIcon="star">{{userInfo['datebirth']}}</exsc-text-icons>
-      <exsc-text-icons class="user-info" leftIcon="star">{{userInfo['adress']}}</exsc-text-icons>
-      <exsc-text-icons class="user-info" leftIcon="star">{{userInfo['timeoffset']}}</exsc-text-icons>
-      <exsc-text-icons class="user-info" leftIcon="star">{{userInfo['gender']}}</exsc-text-icons>
-      <exsc-text-icons class="user-info" leftIcon="star">{{userInfo['bodysize']}}</exsc-text-icons>
+      <exsc-text-icons class="user-info" leftIcon="user">{{profileInfo.name||profileInfo.email}}</exsc-text-icons>
+      <exsc-text-icons class="user-info" leftIcon="email">{{profileInfo.email}}</exsc-text-icons>
     </ng-container>
 
     <div footerContent class="btn-group column">
-      <button id="edit" class="btn  btn-inline">
+      <button id="edit" class="btn btn-inline">
         <span class="text">Редактировать</span>
         <span class="icon edit"></span>
       </button>
       <button id="openTG" class="btn btn-primary">Открыть телеграмм</button>
+      <button class="btn btn-primary" (click)="onLogout()">выход из аккаунта</button>
     </div>
   </exsc-card>
 </div>

@@ -1,8 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { CardComponent } from "../../SHARED/components/card/card.component";
 import { TextIconsComponent } from "../../SHARED/components/text-icons/text-icons.component";
 import { AccordionComponent } from "../../SHARED/components/accordion/accordion.component";
+import { AuthService } from '../../SHARED/services/auth/auth.service';
+import { Router } from '@angular/router';
+import { IUserProfile, UserProfileService } from './user-profile.service';
+import { CommonModule } from '@angular/common';
+import { IUser } from '../../SHARED/services/data/user-data.service';
+import { Observable, Subscription } from 'rxjs';
 
 
 @Component({
@@ -12,26 +18,34 @@ import { AccordionComponent } from "../../SHARED/components/accordion/accordion.
     MatDividerModule,
     CardComponent,
     TextIconsComponent,
-    AccordionComponent
-],
+    AccordionComponent,
+    CommonModule
+  ],
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.scss'
 })
-export class UserProfileComponent {
-  userInfo: { [key: string]: string } = {}
-  constructor() {
-    setTimeout(() => {
-      this.userInfo={
-        userId: "USR-69774",
-        email:"agafonovazxc@gmail.com",
-        SNILS:"СНИЛС | ",
-        tel:"+79307026275",
-        datebirth:"14.04.2000",
-        adress:"Россия, Нижегородская область, г. Нижний Новгород",
-        timeoffset:"Московское время \ UTC +3",
-        gender:"Мужской",
-        bodysize:"M",
-      }
-    }, 2000)
+export class UserProfileComponent implements OnInit, OnDestroy {
+  profileInfo: IUser | null = null
+  private $strems: Array<Subscription> = []
+
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {
+
+  }
+  ngOnInit(): void {
+    this.$strems.push(this.authService.user().subscribe((user) => this.profileInfo = user || null))
+
+  }
+
+  onLogout() {
+    this.authService.logout()
+    this.router.navigate(['/'])
+  }
+
+  ngOnDestroy(): void {
+    if (this.$strems.length)
+      this.$strems.forEach((strem) => strem.unsubscribe())
   }
 }
