@@ -25,11 +25,11 @@ import { TextIconsComponent } from '../../text-icons/text-icons.component';
 export class MenuSystemComponent {
 
   userMenu
-  eventsSystemMenu
+  // eventsSystemMenu
 
   constructor(private menuService: MenuService) {
     this.userMenu = this.menuService.getMenuByName('userMenu');
-    this.eventsSystemMenu = this.menuService.getMenuByName('eventsSystemMenu');
+    // this.eventsSystemMenu = this.menuService.getMenuByName('eventsSystemMenu');
   }
 
 }

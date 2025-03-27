@@ -8,17 +8,17 @@ export class MenuService {
   private menus: { [key: string]: IMenuItem[] } = {
     headerMenu: [
       { label: 'ПРОФИЛЬ', link: '/system/profile' },
-      { label: 'Участникам', link: '/' },
-      { label: 'Мероприятия', link: '/events' },
-      { label: 'О портале', link: '/' },
-
+      { label: 'Доставки', link: '/system/delivery' },
+      { label: 'Создать доставку', link: '/system/delivery/new' },
+      { label: 'Грузы', link: '/system/cargo-list' },
     ],
     userMenu: [
       { label: 'Профиль', leftIcon: 'user', link: 'profile' },
       {
         label: 'Мои мероприятия',
         leftIcon: 'calendar', rightIcon: 'empty',
-        link: '/', children: [
+        link: '/',
+        children: [
           { label: 'Мои дипломы', link: '/' },
           { label: 'Мои заявки', link: '/' },
         ]

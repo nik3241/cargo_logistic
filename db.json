@@ -24,6 +24,12 @@
       "email": "test4@mail.ru",
       "name": "test4@mail.ru",
       "password": "123123"
+    },
+    {
+      "id": "d1e8",
+      "email": "nikita.agafonov11@yandex.ru",
+      "name": "nikita.agafonov11@yandex.ru",
+      "password": "123123"
     }
   ],
   "orders": [

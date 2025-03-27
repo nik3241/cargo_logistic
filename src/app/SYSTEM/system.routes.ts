@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ProfileLogistComponent } from './user-profile/profile-logist/profile-logist.component';
 import { ProfileCarrierComponent } from './user-profile/profile-carrier/profile-carrier.component';
+import { CargoLayoutComponent } from './cargo-layout/cargo-layout.component';
 
 export const SystemRouts: Routes = [
   {
@@ -33,4 +34,9 @@ export const SystemRouts: Routes = [
       },
     ],
   },
+  {
+    path: "cargo-list",
+    component: CargoLayoutComponent,
+    title: "Cargo Transportation | Найти грузы",
+  }
 ];

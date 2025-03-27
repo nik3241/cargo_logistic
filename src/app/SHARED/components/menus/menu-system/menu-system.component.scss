@@ -1,11 +1,12 @@
 :host {
   box-shadow: var(--shadow-200);
+  height: 100%;
+  background-color: #fff;
 }
 
 nav {
   display: flex;
   flex-direction: column;
-  background-color: #fff;
 
   &>ul {
     margin-top: .8rem;

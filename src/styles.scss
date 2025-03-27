@@ -136,7 +136,9 @@ a,
 }
 
 
-
+router-outlet {
+  display: none;
+}
 
 
 
@@ -216,5 +218,9 @@ h5,
 
   &.space-between {
     justify-content: space-between;
+  }
+
+  &.ai-center {
+    align-items: center;
   }
 }

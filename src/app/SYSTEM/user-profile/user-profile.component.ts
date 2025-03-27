@@ -16,8 +16,10 @@ import { Subscription } from 'rxjs';
   imports: [
     MatDividerModule,
     CommonModule,
-    RouterOutlet
-  ],
+    RouterOutlet,
+    CardComponent,
+    TextIconsComponent
+],
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.scss'
 })
