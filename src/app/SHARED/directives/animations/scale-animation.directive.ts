@@ -21,7 +21,7 @@ export class ScaleAnimationDirective implements OnInit {
     const styles = `
     [exscScaleAnimation]:hover {
       box-shadow: 0 4px 4px 2px rgba(29, 79, 139, .3);
-      transform: scale(1.1);
+      transform: scale(1.01);
       transition: all 500ms ease-in-out;
     }
   `;
