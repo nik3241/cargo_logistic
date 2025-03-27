@@ -1,14 +1,13 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Output } from '@angular/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { CardComponent } from "../../SHARED/components/card/card.component";
 import { TextIconsComponent } from "../../SHARED/components/text-icons/text-icons.component";
 import { AccordionComponent } from "../../SHARED/components/accordion/accordion.component";
 import { AuthService } from '../../SHARED/services/auth/auth.service';
-import { Router } from '@angular/router';
-import { IUserProfile, UserProfileService } from './user-profile.service';
+import { Router, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { IUser } from '../../SHARED/services/data/user-data.service';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -16,26 +15,24 @@ import { Observable, Subscription } from 'rxjs';
   standalone: true,
   imports: [
     MatDividerModule,
-    CardComponent,
-    TextIconsComponent,
-    AccordionComponent,
-    CommonModule
+    CommonModule,
+    RouterOutlet
   ],
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.scss'
 })
 export class UserProfileComponent implements OnInit, OnDestroy {
+
   profileInfo: IUser | null = null
   private $strems: Array<Subscription> = []
 
   constructor(
     private authService: AuthService,
     private router: Router
-  ) {
+  ) { }
 
-  }
   ngOnInit(): void {
-    this.$strems.push(this.authService.user().subscribe((user) => this.profileInfo = user || null))
+    this.$strems.push(this.authService.user.subscribe((user) => this.profileInfo = user || null))
 
   }
 

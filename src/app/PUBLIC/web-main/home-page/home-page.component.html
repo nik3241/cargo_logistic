@@ -1,63 +1,53 @@
-<section class="main-promo slider">
-  <div class="slide slide-1">
-    <div class="slide-bg">
-      <img src="/blob.svg" height="500" alt="">
-      <img class="logo" src="/Logo/Size=large, color=color.svg" height="500" alt="">
-    </div>
-    <div class="content">
-      <h1 class="title-hero">Мероприятия и соревнования</h1>
-      <h2 class="title">Спорт это жизнь</h2>
-      <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque temporibus autem quasi ab
-        corporis beatae, aut necessitatibus molestiae adipisci sequi tenetur, aliquam ipsa neque unde, soluta rem quia
-        iste. Vel!
-        Quas omnis fuga temporibus placeat, voluptates optio. Ex quis,</div>
-      <button type="button mt-20">
-        <span class="icon arrow-right-32"></span>
-      </button>
-    </div>
-  </div>
-
-  <div class="service">
-
+<!-- About Section -->
+<section id="about" class="about">
+  <div class="overlay-white"></div>
+  <div class="container">
+    <h2>О компании</h2>
+    <p>Мы предоставляем надежные транспортные услуги по всему миру. Наша миссия — обеспечить своевременную и безопасную
+      доставку ваших грузов.</p>
   </div>
 </section>
 
-<section class="advantages">
-  <div class="wrapper screen-lg col-3">
-    <exsc-card>
-      <h4 headerContent class="heading">Спортсменам и родителям</h4>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex dolorem, vel, excepturi provident vero, molestias
-      tenetur aperiam eum minus veniam dicta reiciendis fuga placeat obcaecati beatae nesciunt ipsam iste id.
-      <button footerContent routerLink="#" class="btn btn-primary">Преимущества</button>
-    </exsc-card>
-    <exsc-card>
-      <h4 headerContent class="heading">Тренерам и судьям</h4>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia sint aut aspernatur nisi modi. Velit sequi quos et
-      nisi consectetur exercitationem distinctio architecto voluptas itaque! Sint in autem molestias quia.
-      <button footerContent routerLink="#" class="btn btn-primary">Преимущества</button>
-    </exsc-card>
-    <exsc-card>
-      <h4 headerContent class="heading">Организаторам</h4>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta dolores facere labore odit atque quibusdam saepe
-      ratione deleniti similique eligendi. Quo odio esse repudiandae, aperiam aut vero eaque quam blanditiis.
-      <button footerContent routerLink="#" class="btn btn-primary">Преимущества</button>
-    </exsc-card>
+<!-- Services Section -->
+<section id="services" class="services">
+  <div class="container">
+    <h2>Наши услуги</h2>
+    <div class="service-items flex ">
+      <div class="service-item">
+        <h3>Международные перевозки</h3>
+        <p>Организация перевозок грузов по всему миру.</p>
+      </div>
+      <div class="service-item">
+        <h3>Складские услуги</h3>
+        <p>Хранение и управление грузами на наших складах.</p>
+      </div>
+      <div class="service-item">
+        <h3>Логистика</h3>
+        <p>Оптимизация маршрутов и управление цепочками поставок.</p>
+      </div>
+    </div>
   </div>
-
 </section>
 
-<section class="adverts">
 
-  <div class="wrapper screen-lg">
-    <h2 class="title-page ">Анонсы соревнований</h2>
-  </div>
-  <div class="wrapper">
-    <div exscGrabbingScroll class="cards ">
-      <exsc-card-event *ngFor="let i of arrayOfNumbers">описание карточки {{i}}. Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Recusandae eius quia, ullam ipsum error quo distinctio dignissimos soluta eaque magnam
-        aspernatur deserunt similique animi accusamus sit, quae adipisci, amet laborum.</exsc-card-event>
+<!-- Contact Section -->
+<section id="contact" class="contact">
+  <div class="container  flex space-between">
+    <div class="container container-full-width">
+      <h2>Контакты</h2>
+      <p>Свяжитесь с нами для получения дополнительной информации.</p>
+
+      <form action="#">
+        <input type="text" placeholder="Ваше имя" required>
+        <input type="email" placeholder="Ваш email" required>
+        <textarea placeholder="Ваше сообщение" required></textarea>
+        <button class="btn btn-primary" type="submit">Отправить</button>
+      </form>
 
     </div>
+    <div class="image flex ">
 
+      <img src="/blob.svg" height="400">
+    </div>
   </div>
 </section>

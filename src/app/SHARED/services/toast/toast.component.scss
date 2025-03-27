@@ -41,8 +41,16 @@
   transition-timing-function: ease-out;
 }
 
+.progress_bar.warning {
+  background: var(--color-warning);
+}
+
 .progress_bar.success {
   background: var(--color-positive);
+}
+
+.progress_bar.information {
+  background: var(--color-information);
 }
 
 .error_title {

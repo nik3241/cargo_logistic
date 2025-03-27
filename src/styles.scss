@@ -47,6 +47,7 @@
   --color-brand: #2C398B;
   --color-accent: #DE7158;
   --color-accent2: #F3B13F;
+  --color-information: #2db3b8;
   --color-positive: #14AE5C;
   --color-warning: #E8B931;
   --color-danger: #B3261E;
@@ -61,14 +62,14 @@
   --color-text-brand: var(--color-brand);
   --color-text-brand-secondary: #6B9CC2;
 
-  --gradient-brand:linear-gradient(45deg, var(--bg-brand-dark),var(--bg-brand-light));
+  --gradient-brand: linear-gradient(45deg, var(--bg-brand-dark), var(--bg-brand-light));
   --gradient-accent: linear-gradient(90deg, var(--color-accent2) 0%, var(--color-accent) 73.5%);
   --gradient-color-3x-circel: radial-gradient(circle, #4a72a2, #7070aa, #986ba7, #bb6598, #d36480, #df6a72, #e67362, #e87f52, #ed8b4d, #f19748, #f3a443, #f3b13f);
   --gradient-color-3x-tt: linear-gradient(to top, #4a72a2, #7070aa, #986ba7, #bb6598, #d36480, #df6a72, #e67362, #e87f52, #ed8b4d, #f19748, #f3a443, #f3b13f);
 
   --bg-brand: var(--color-brand);
   --bg-brand-dark: #062e5f;
-  --bg-brand-light: #00ADEE;
+  --bg-brand-light: #d2e6ff;
   --bg-accent: var(--color-accent);
   --bg-accent-light: #F6DAD3;
   --bg-accent-dark: #D64D2E;
@@ -92,7 +93,7 @@
 // }
 
 html {
-  font: normal 20px/1.4 var(--body-font);
+  font: normal 16px/1.4 var(--body-font);
   color: var(--color-text);
 }
 
@@ -116,7 +117,9 @@ span {
   color: inherit;
 }
 
-a {
+a,
+[routerLink] {
+  cursor: pointer;
   color: inherit;
   line-height: inherit;
   font: inherit;
@@ -185,4 +188,33 @@ h5,
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+
+
+.container {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+
+  &.container-full-width {
+
+    width: 100%;
+  }
+}
+
+.flex {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3.5rem;
+
+  &.flex-col {
+    flex-direction: column;
+  }
+
+  &.space-between {
+    justify-content: space-between;
+  }
 }

@@ -4,7 +4,6 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } 
 import { IUser, UserDataService } from '../../../SHARED/services/data/user-data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from '../../../SHARED/services/auth/auth.service';
-import { ToastComponent } from "../../../SHARED/services/toast/toast.component";
 import { ToastService, toastTypes } from '../../../SHARED/services/toast/toasts.service';
 import { CommonModule } from '@angular/common';
 @Component({
@@ -16,7 +15,10 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
     CommonModule
   ],
-  providers: [UserDataService, ToastService],
+  providers: [
+    UserDataService,
+    ToastService
+  ],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.scss'
 })
@@ -26,7 +28,7 @@ export class SignUpComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private userDataService: UserDataService,
+    // private userDataService: UserDataService,
     private authService: AuthService,
     private toastService: ToastService,
     private router: Router,
@@ -39,8 +41,6 @@ export class SignUpComponent implements OnInit {
       repeatPassword: ['', Validators.required],
       agree: [false, Validators.requiredTrue]
     }, { validator: this.passwordMatchValidator });
-
-
   }
   ngOnInit() {
   }
@@ -51,24 +51,18 @@ export class SignUpComponent implements OnInit {
   }
 
   onSubmit() {
+    this.toastService.information("проверка работы");
     if (this.signupForm.valid) {
       const userData: IUser = this.signupForm.value;
-      this.authService.registration(userData).subscribe(
+      this.authService.registration({ email: userData.email, name: userData.email, password: userData.password }).subscribe(
         (response) => {
-          console.log('SignUpComponent response', response)
-          this.toastService.initiate({
-            title: 'Успех',
-            content: 'Пользователь зарегистрирован',
-            type: toastTypes.success,
-          });
-          this.router.navigate(['/system']);
+          if (response) {
+            console.log('SignUpComponent response', response)
+            this.toastService.success('Пользователь зарегистрирован');
+            this.router.navigate(['/system']);
+          }
         },
         (error) => {
-          this.toastService.initiate({
-            title: 'Провал',
-            content: 'Такой пользователь уже зарегистрирован',
-            type: toastTypes.error,
-          });
           console.error('Error registering user', error);
         }
       );

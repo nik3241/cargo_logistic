@@ -1,0 +1,24 @@
+<div class="left-container">
+  <button class="btn btn-primary" (click)="onLogout()">выход из аккаунта</button>
+  <exsc-card *ngIf="profileInfo" class="card-profile padding-large" headerClass="row align-center">
+
+    <div headerContent class="avatar">{{ profileInfo.email.substring(0,2)}}</div>
+    <div headerContent class="user-heading">
+      <div class="heading">{{profileInfo.name||profileInfo.email}}</div>
+    </div>
+
+    <ng-container mainContent>
+      <exsc-text-icons class="user-info" leftIcon="user">{{profileInfo.name}}</exsc-text-icons>
+      <exsc-text-icons class="user-info" leftIcon="email">{{profileInfo.email}}</exsc-text-icons>
+    </ng-container>
+
+    <div footerContent class="btn-group column">
+      <button id="edit" class="btn btn-inline">
+        <span class="text">Редактировать</span>
+        <span class="icon edit"></span>
+      </button>
+      <!-- <button id="openTG" class="btn btn-primary">Открыть телеграмм</button> -->
+
+    </div>
+  </exsc-card>
+</div>

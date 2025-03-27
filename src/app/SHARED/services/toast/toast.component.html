@@ -13,5 +13,9 @@
     </div>
   </div>
 
-  <div class="progress_bar" [ngClass]="{ success: toastService.data && toastService.data.type === 1 }" #element></div>
+  <div class="progress_bar" [ngClass]="{
+    warning: toastService.data && toastService.data.type === 1,
+    success: toastService.data && toastService.data.type === 2,
+    information: toastService.data && toastService.data.type === 3
+   }" #element></div>
 </div>

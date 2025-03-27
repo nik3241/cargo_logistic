@@ -20,88 +20,10 @@
       "agree": true
     },
     {
-      "id": "509c",
-      "email": "qwerty@mail.ru",
-      "password": "123123",
-      "repeatPassword": "123123",
-      "agree": true
-    },
-    {
-      "id": "f695",
-      "email": "qwerty@mail.ru",
-      "password": "123123",
-      "repeatPassword": "123123",
-      "agree": true
-    },
-    {
-      "id": "0e01",
-      "email": "qwerty@mail.ru",
-      "password": "123123",
-      "repeatPassword": "123123",
-      "agree": true
-    },
-    {
-      "id": "9cdc",
-      "email": "qwerty@mail.ru",
-      "password": "123123",
-      "repeatPassword": "123123",
-      "agree": true
-    },
-    {
-      "id": "0f38",
-      "email": "qwerty@mail.ru",
-      "password": "123123",
-      "repeatPassword": "123123",
-      "agree": true
-    },
-    {
-      "id": "2feb",
-      "email": "qwerty@mail.ru",
-      "password": "123123",
-      "repeatPassword": "123123",
-      "agree": true
-    },
-    {
-      "id": "f1c0",
-      "email": "qwerty@mail.ru",
-      "password": "123123",
-      "repeatPassword": "123123",
-      "agree": true
-    },
-    {
-      "id": "1b7e",
-      "email": "qwerty@mail.ru",
-      "password": "123123",
-      "repeatPassword": "123123",
-      "agree": true
-    },
-    {
-      "id": "96ec",
-      "email": "qwerty@mail.ru",
-      "password": "123456789",
-      "repeatPassword": "123456789",
-      "agree": true
-    },
-    {
-      "id": "b4ee",
-      "email": "qwerty@mail.ru",
-      "password": "123456789",
-      "repeatPassword": "123456789",
-      "agree": true
-    },
-    {
-      "id": "3bcb",
-      "email": "qwerty@mail.ru",
-      "password": "123123",
-      "repeatPassword": "123123",
-      "agree": true
-    },
-    {
-      "id": "c980",
-      "email": "qwerty@mail.ru",
-      "password": "123123",
-      "repeatPassword": "123123",
-      "agree": true
+      "id": "67c7",
+      "email": "test4@mail.ru",
+      "name": "test4@mail.ru",
+      "password": "123123"
     }
   ],
   "orders": [

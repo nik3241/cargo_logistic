@@ -19,12 +19,12 @@
 
   <label for="checkbox">
     <span>Соглашаюсь с<a routerLink="/">правилами пользования площадкой</a></span>
-    <input formControlName="agree" id="checkbox" name="checkbox" type="checkbox" >
+    <input formControlName="agree" id="checkbox" name="checkbox" type="checkbox">
   </label>
 
   <div class="links">
     <span>Есть аккаунт? <a routerLink="/login/signin">Войти</a></span>
-    <button type="submit" [disabled]="!signupForm.valid">
+    <button class="btn" type="submit" [disabled]="!signupForm.valid">
       <span class="icon arrow-right-32"></span>
     </button>
   </div>

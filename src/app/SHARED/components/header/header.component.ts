@@ -4,6 +4,7 @@ import { NgIf } from "@angular/common";
 import { MenuService } from '../menus/menu.service';
 import { MenuHeaderComponent } from '../menus/menu-header/menu-header.component';
 import { AuthService } from '../../services/auth/auth.service';
+import { IUser } from '../../services/data/user-data.service';
 @Component({
   selector: 'exsc-header',
   standalone: true,
@@ -16,19 +17,18 @@ import { AuthService } from '../../services/auth/auth.service';
   providers: [AuthService],
 })
 export class HeaderComponent {
-  // @Input() isPublic = true
-  isAuthenticated = false
+  protected isAuthenticated = false
+  protected user: IUser | null = null;
 
-  protected userImageSrc = ""
-  protected userName = "Jon Doe"
   menuName: string = 'headerMenu'
   menuItems
 
   constructor(
     private menuService: MenuService,
-    private authService: AuthService,
+    protected authService: AuthService,
   ) {
     this.menuItems = this.menuService.getMenuByName(this.menuName);
     this.isAuthenticated = this.authService.isLoggedIn()
+    this.authService.user.subscribe(user => this.user = user)
   }
 }

@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { ToastComponent } from '../../../SHARED/services/toast/toast.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserDataService } from '../../../SHARED/services/data/user-data.service';
 import { AuthService } from '../../../SHARED/services/auth/auth.service';
@@ -17,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     CommonModule
   ],
-  providers: [UserDataService, ToastService],
+  providers: [UserDataService],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.scss'
 })
@@ -26,7 +25,7 @@ export class SignInComponent {
 
   constructor(
     private fb: FormBuilder,
-    private userDataService: UserDataService,
+    // private userDataService: UserDataService,
     private authService: AuthService,
     private toastService: ToastService,
     private router: Router,
@@ -40,28 +39,10 @@ export class SignInComponent {
   onSubmit() {
     if (this.signinForm.valid) {
       const userData = this.signinForm.value;
-      this.userDataService.registerUser(userData).subscribe(
-        response => {
-          if (response) {
-            this.toastService.initiate({
-              title: "Успех",
-              content: "Пользователь авторизован",
-              type: toastTypes.success,
-            })
-            this.authService.login(response)
-            this.router.navigate(["/system"])
-            return
-          }
-          this.toastService.initiate({
-            title: "Ошибка",
-            content: "Пользователь с таким email уже существует",
-            type: toastTypes.error,
-          })
-        },
-        error => {
-          console.error('Error registering user', error);
-        }
-      );
+      const isSuccess = this.authService.authorization(userData.email, userData.password)
+
+      this.toastService.success(`Пользователь авторизован ${isSuccess}`)
+
     }
 
   }

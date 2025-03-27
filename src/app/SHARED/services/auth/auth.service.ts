@@ -5,6 +5,7 @@ import { IUser, UserDataService } from '../data/user-data.service';
 import { BehaviorSubject, map, Observable, switchMap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { ToastService, toastTypes } from '../toast/toasts.service';
+import { consumerDestroy } from '@angular/core/primitives/signals';
 
 
 @Injectable({
@@ -16,11 +17,9 @@ export class AuthService {
 
   // Инициализируем BehaviorSubject с начальным значением null
   private _user = new BehaviorSubject<IUser | null>(null);
-  // URL вашего JSON-сервера
-  private apiUrl = 'http://localhost:3000/users';
 
   constructor(
-    // private http: HttpClient,
+    private router: Router,
     private userDataService: UserDataService,
     private toastService: ToastService
   ) {
@@ -28,11 +27,7 @@ export class AuthService {
   }
 
   // Метод для получения текущего пользователя
-  user(): Observable<IUser | null> {
-    return this._user.asObservable();
-  }
-
-
+  user = this._user.asObservable();
 
 
   private checkAuthentication() {
@@ -40,33 +35,78 @@ export class AuthService {
       const storedUser = window.localStorage.getItem('currentUser');
       if (storedUser) {
         // Пользователь найден, выполняем вход
-        this.login(JSON.parse(storedUser));
+        const userObj = JSON.parse(storedUser)
+        // this.login(userObj.email, userObj.password);
+        this.login(userObj)
       }
     }
   }
-
-
 
   isLoggedIn(): boolean {
     return this.isAuth;
   }
 
+  authorization(email: string, password: string) {
+    const response = this.userDataService.getUserByEmail(email)
+      .subscribe((item) => {
+        if (item?.password === password) {
+          this.login({ ...item })
+          return true
+        }
+        return false
+      })
+  }
 
   login(user: IUser) {
-    if (user && user.password !== undefined) {
-      // Убираем пароль из данных пользователя перед сохранением
-      const { password, ...userWithoutPassword } = user;
-      this.isAuth = true;
-      this._user.next(userWithoutPassword);
-      localStorage.setItem('currentUser', JSON.stringify(userWithoutPassword));
-      this.toastService.initiate({ content: "Пользователь авторизован", title: "Автоизация", type: toastTypes.success })
+    this.isAuth = true;
+    this._user.next(user);
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    this.toastService.success("Пользователь авторизован")
 
-    } else {
-      this.toastService
-        .initiate({ content: "Ошибка в данных пользователя", title: "Автоизация", type: toastTypes.error })
+    this.router.navigate(["/system"])
+    // if (typeof response)
 
-      console.error('Invalid user data:', user);
-    }
+    // subscribe(
+    //   response => {
+    //     if (response) {
+    //       this.toastService.initiate({
+    //         title: "Успех",
+    //         content: "Пользователь авторизован",
+    //         type: toastTypes.success,
+    //       })
+    //       this.authService.login(response)
+    //       this.router.navigate(["/system"])
+    //       return
+    //     }
+    //     this.toastService.initiate({
+    //       title: "Ошибка",
+    //       content: "Пользователь с таким email уже существует",
+    //       type: toastTypes.error,
+    //     })
+    //   },
+    //   error => {
+    //     console.error('Error registering user', error);
+    //   }
+    // );
+
+
+    // if (user && user.password !== undefined) {
+    //   // Убираем пароль из данных пользователя перед сохранением
+    //   const { password, ...userWithoutPassword } = user;
+    //   this.isAuth = true;
+    //   this._user.next(userWithoutPassword);
+    //   localStorage.setItem('currentUser', JSON.stringify(userWithoutPassword));
+    //   this.toastService.initiate({ content: "Пользователь авторизован", title: "Автоизация", type: toastTypes.success })
+    //   return true
+    // } else {
+    //   this.toastService
+    //     .initiate({
+    //       content: "Ошибка в данных пользователя",
+    //       title: "Автоизация",
+    //       type: toastTypes.error
+    //     })
+    //   return false
+    // }
   }
 
 
@@ -74,15 +114,18 @@ export class AuthService {
     this.isAuth = false
     // Логика выхода пользователя
     this._user.next(null)
+
+    // Удалить пользователя из локального хранилища
     if (typeof window !== 'undefined') {
-      // Удалить пользователя из локального хранилища
       window.localStorage.removeItem('currentUser');
     }
+
+    this.router.navigate(['/'])
   }
+
   // Логика регистрации пользователя
   registration(userData: IUser): Observable<IUser | null> {
     return this.userDataService.registerUser(userData)
-
   }
 }
 

@@ -12,6 +12,11 @@
 }
 
 .avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-light);
+  text-transform: uppercase;
   aspect-ratio: 1;
   height: 3rem;
   background: var(--color-brand);

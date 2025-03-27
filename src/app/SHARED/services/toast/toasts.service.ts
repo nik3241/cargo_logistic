@@ -3,7 +3,9 @@ import { Subject } from 'rxjs';
 
 export enum toastTypes {
   error,
+  warning,
   success,
+  information
 }
 
 export interface ToastData {
@@ -19,21 +21,36 @@ export interface ToastData {
 })
 export class ToastService {
   data!: ToastData;
-  public open = new Subject<ToastData>();
+  public $toast = new Subject<ToastData>();
 
   initiate(data: ToastData) {
-    console.log("ToastService initiate data", data)
-    if (!data.type) {
-      this.data.type = toastTypes.error;
-    }
     this.data = { ...data, show: true, progressWidth: '100%' };
-    this.open.next(this.data);
+    console.log("new toastInit this.data", this.data)
+    this.$toast.next(this.data);
   }
 
   hide() {
-
     this.data = { ...this.data, show: false };
-    console.log('hide', this.data)
-    this.open.next(this.data);
+    this.$toast.next(this.data);
   }
+
+  error(content = "") {
+    const toastConfig = { content, title: "Ошибка", } as ToastData
+    this.initiate(toastConfig)
+  }
+  warning(content = "") {
+    const toastConfig = { content, title: "Предупреждение", } as ToastData
+    this.initiate(toastConfig)
+  }
+  success(content = "") {
+
+    const toastConfig = { content, title: "Успех", } as ToastData
+    this.initiate(toastConfig)
+  }
+  information(content = "") {
+    const toastConfig = { content, title: "Информация", } as ToastData
+    this.initiate(toastConfig)
+  }
+
+
 }

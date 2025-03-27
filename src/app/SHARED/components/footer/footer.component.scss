@@ -1,8 +1,8 @@
-
-:host{
+:host {
   flex: 0 0 auto;
   display: flex;
- background-color: rgba(29, 79, 139, 1);
+  background-color: rgba(29, 79, 139, 1);
 
- padding: 1rem 3rem;
+  padding: 1rem 3rem;
+  color: var(--color-text-light);
 }
